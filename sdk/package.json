@@ -1,6 +1,6 @@
 {
   "name": "@basemailer/sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TypeScript SDK for BaseMailer - decentralized email with zero-knowledge proofs on Base network",
   "type": "module",
   "main": "./dist/index.js",
