@@ -1,7 +1,7 @@
 # @basemailer/sdk
 
 [![Development Status](https://img.shields.io/badge/Status-Under%20Development-orange)](https://github.com/basemailer/sdk)
-[![npm version](https://img.shields.io/npm/v/@basemailer/sdk)](https://www.npmjs.com/package/@basemailer/sdk)
+[![npm version](https://img.shields.io/npm/v/@zakkycrypt-org/basemailer-sdk)](https://www.npmjs.com/package/@basemailer/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 

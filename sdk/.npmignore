@@ -1,0 +1,39 @@
+# Source files
+src/
+tests/
+*.test.ts
+*.test.js
+
+# Development files
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+.vscode/
+.idea/
+
+# Build tools
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment
+.env*
+.DS_Store
+
+# Documentation drafts
+*.md~
+.nyc_output
+coverage/
+
+# Development configs
+basemailer.service.config.json
+demo-cli.sh
+README_old.md
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/

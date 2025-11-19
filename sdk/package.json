@@ -1,7 +1,7 @@
 {
-  "name": "@basemailer/sdk",
+  "name": "@zakkycrypt-org/basemailer-sdk",
   "version": "0.1.0",
-  "description": "BaseMailer TypeScript SDK for on-chain identity, ZK proofs, and encrypted messaging",
+  "description": "TypeScript SDK for BaseMailer - decentralized email with zero-knowledge proofs on Base network",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -14,7 +14,9 @@
     "./cli": "./dist/cli.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "bin": {
     "basemailer-sdk": "./dist/cli.js"
@@ -25,17 +27,41 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm run test && npm run typecheck"
   },
   "keywords": [
     "basemailer",
     "sdk",
     "web3",
+    "blockchain",
+    "base",
     "zkp",
-    "ipfs"
+    "zero-knowledge",
+    "ipfs",
+    "decentralized-email",
+    "ethereum",
+    "smart-contracts",
+    "encryption",
+    "privacy"
   ],
-  "author": "zakkycrypt",
+  "author": {
+    "name": "zakkycrypt",
+    "url": "https://github.com/zakkycrypt01"
+  },
+  "contributors": [
+    "BaseMailer Contributors"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/zakkycrypt01/basemailer#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakkycrypt01/basemailer.git",
+    "directory": "sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/zakkycrypt01/basemailer/issues"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
