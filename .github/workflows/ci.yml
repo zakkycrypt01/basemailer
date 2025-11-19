@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sdk/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'sdk/**'
+      - '.github/workflows/**'
+
+jobs:
+  test:
+    name: Test SDK
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: sdk/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd sdk
+          npm ci
+
+      - name: Run type check
+        run: |
+          cd sdk
+          npm run typecheck
+
+      - name: Run tests
+        run: |
+          cd sdk
+          npm run test
+
+      - name: Build package
+        run: |
+          cd sdk
+          npm run build
+
+      - name: Verify package can be packed
+        run: |
+          cd sdk
+          npm pack --dry-run
