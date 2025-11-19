@@ -1,6 +1,6 @@
 {
   "name": "@basemailer/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript SDK for BaseMailer - decentralized email with zero-knowledge proofs on Base network",
   "type": "module",
   "main": "./dist/index.js",
@@ -86,6 +86,3 @@
     "access": "public"
   }
 }
-
-
-
