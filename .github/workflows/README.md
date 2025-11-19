@@ -5,17 +5,17 @@ This directory contains GitHub Actions workflows for the BaseMailer SDK.
 ## Workflows
 
 ### 1. CI (`ci.yml`)
-- **Triggers**: Push to `main` branch or pull requests targeting `main`
+- **Triggers**: Pull requests targeting `main`
 - **Purpose**: Runs tests, type checking, and build verification
 - **Matrix**: Tests on Node.js 18 and 20
 - **Path filtering**: Only runs when SDK files or workflows change
 
 ### 2. Publish to NPM (`publish-npm.yml`)
 - **Triggers**: 
-  - Version tags (e.g., `v1.0.0`)
+  - Push to `main` branch (automatic)
   - GitHub releases
   - Manual workflow dispatch
-- **Purpose**: Publishes the SDK package to NPM with `beta` tag
+- **Purpose**: Automatically updates version and publishes the SDK package to NPM with `beta` tag
 
 ## Setup Instructions
 
@@ -28,27 +28,33 @@ You need to add an NPM token to your repository secrets:
 
 ### 2. Publishing Options
 
-#### Option A: Manual Release (Recommended)
+#### Option A: Automatic Publishing (Default)
+1. Make changes to the SDK code
+2. Push or merge to the `main` branch
+3. The workflow will automatically:
+   - Run all tests
+   - Increment the patch version
+   - Create a git tag
+   - Build and publish to NPM with `beta` tag
+   - Commit the version bump back to the repository
+
+#### Option B: Manual Release
 1. Run the "Publish to NPM" workflow manually from the Actions tab
 2. Choose the version type (patch/minor/major)
 3. The workflow will:
    - Update the version in `package.json`
    - Create a git tag
    - Build and publish to NPM with `beta` tag
-   - Create a GitHub release
-
-#### Option B: Tag-based Release
-1. Create and push a version tag:
-   ```bash
-   cd sdk
-   npm version patch  # or minor/major
-   git push origin main --tags
-   ```
-2. The workflow will automatically publish to NPM with `beta` tag
 
 #### Option C: GitHub Release
 1. Create a new release on GitHub
 2. The workflow will automatically publish to NPM with `beta` tag
+
+## Important Notes
+
+- **Automatic Version Bumping**: Every push to `main` that changes SDK files will automatically increment the patch version
+- **Skip CI**: To avoid version bumps, include `[skip ci]` in your commit message
+- **Pull Request Testing**: CI tests run on pull requests but don't publish
 
 ## Installation
 
